@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Montserrat:wght@400;500;600&family=Noto+Serif+Devanagari:wght@400;500&family=Noto+Serif+Tamil:wght@300;400&family=Playfair+Display&family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* 
+font-family: 'Lato', sans-serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Noto Serif Devanagari', serif;
+font-family: 'Noto Serif Tamil', serif;
+font-family: 'Playfair Display', serif;
+font-family: 'Poppins', sans-serif; 
+font-family: 'Roboto', sans-serif;
+*/
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+::selection {
+    background-color: #000;
+    color: white;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #949393;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #000;
+    border-radius: none;
+}

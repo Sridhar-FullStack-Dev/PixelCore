@@ -1,0 +1,125 @@
+.projects {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+
+  @media (min-width: 100px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  @media (min-width: 768px) {
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+
+  .body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 100px;
+  }
+
+  .modalContainer {
+    height: 350px;
+    width: 400px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: white;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 3;
+  }
+
+  .modalSlider {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transition: top 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+
+  .modal {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal img {
+    height: auto;
+  }
+
+  .cursor,
+  .cursorLabel {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #cef34a;
+    color: white;
+    position: fixed;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins";
+    font-size: 14px;
+    font-weight: 300;
+    pointer-events: none;
+  }
+
+  .cursorLabel {
+    background-color: transparent;
+  }
+}
+
+// Projects2
+.slidingImages {
+  display: flex;
+  flex-direction: column;
+  gap: 3vw;
+  position: relative;
+  background-color: white;
+  z-index: 50;
+  overflow: hidden;
+  .slider {
+    display: flex;
+    position: relative;
+    gap: 3vw;
+    width: 120vw;
+    left: -10vw;
+    .project {
+      width: 25%;
+      height: 20vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .imageContainer {
+        position: relative;
+        width: 80%;
+        height: 80%;
+        img {
+          object-fit: cover;
+        }
+      }
+    }
+  }
+  .circleContainer {
+    position: relative;
+    .circle {
+      height: 1550%;
+      width: 120%;
+      left: -10%;
+      border-radius: 0 0 50% 50%;
+      background-color: white;
+      z-index: 1;
+      position: absolute;
+      box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    }
+  }
+}

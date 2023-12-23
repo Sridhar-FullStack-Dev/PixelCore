@@ -1,0 +1,453 @@
+
+@font-face {
+  font-family: 'Neue';
+  src: url('../../../Fonts/PIGARNOSNEUE/PIGARNOSNEUERegular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'lexico';
+  src: url('../../../Fonts/Manverse_Normal.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Summer';
+  src: url('../../../Fonts/Gimbal\ Extended\ Regular.ttf') format('opentype');
+}
+
+.logo-bottom {
+  font-family: "Summer";
+}
+
+.font-lexico {
+  font-family: "lexico";
+}
+
+.text-on {
+  font-family: 'Neue';
+}
+
+.swiper-slide {
+  width: auto !important;
+}
+
+/* Button */
+
+.button-86 {
+  all: unset;
+  width: 100px;
+  height: 30px;
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  position: relative;
+  color: #f0f0f0;
+  cursor: pointer;
+  z-index: 1;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-86::after,
+.button-86::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  transition: all .4s;
+}
+
+.button-86::before {
+  transform: translate(0%, 0%);
+  width: 100%;
+  height: 100%;
+  background: #000;
+  border-radius: 10px;
+}
+
+.button-86::after {
+  transform: translate(10px, 10px);
+  width: 35px;
+  height: 35px;
+  background: #ffffff15;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 50px;
+}
+
+.button-86:hover::before {
+  transform: translate(5%, 20%);
+  width: 110%;
+  height: 110%;
+}
+
+.button-86:hover::after {
+  border-radius: 10px;
+  transform: translate(0, 0);
+  width: 100%;
+  height: 100%;
+}
+
+.button-86:active::after {
+  transition: 0s;
+  transform: translate(0, 5%);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.circular-text:hover {
+  animation: spin 15s linear infinite;
+}
+
+/* We Are Hiring */
+.hover-1 {
+  background-image: linear-gradient(#1D1F23, #1D1F23);
+  background-size: 0 100%;
+  background-repeat: no-repeat;
+  transition: .3s ease;
+}
+
+.hover-1:hover {
+  background-size: 100% 100%;
+}
+
+.we-are-hiring {
+  margin: 0;
+  display: grid;
+  gap: 20px;
+  place-content: center;
+}
+
+h3 {
+  font-family: system-ui, sans-serif;
+  font-size: 3rem;
+  margin: 0;
+  cursor: pointer;
+  padding: 0 .07em;
+}
+
+/* Logo-Contact Us */
+
+/* Contact Form */
+form {
+  padding: 30px 0 0 0;
+}
+
+form .form-row {
+  display: flex;
+  margin: 32px 0;
+}
+
+form .form-row .input-data {
+  width: 100%;
+  height: 40px;
+  margin: 0 20px;
+  position: relative;
+}
+
+form .form-row .textarea {
+  height: 70px;
+}
+
+.input-data input,
+.textarea textarea {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-bottom: 2px solid gray;
+}
+
+.input-data input:focus~label,
+.textarea textarea:focus~label,
+.input-data input:valid~label,
+.textarea textarea:valid~label {
+  transform: translateY(-20px);
+  font-size: 14px;
+  color: #afff54;
+}
+
+.textarea textarea {
+  resize: none;
+  padding-top: 10px;
+}
+
+.input-data label {
+  position: absolute;
+  pointer-events: none;
+  bottom: 10px;
+  transition: all 0.3s linear;
+}
+
+.textarea label {
+  width: 100%;
+  bottom: 40px;
+}
+
+.input-data .underline {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+}
+
+.input-data .underline:before {
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 100%;
+  background: #afff54;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s linear;
+}
+
+.input-data input:focus~.underline:before,
+.input-data input:valid~.underline:before,
+.textarea textarea:focus~.underline:before,
+.textarea textarea:valid~.underline:before {
+  transform: scale(1);
+}
+
+@media (max-width: 700px) {
+  .text {
+    font-size: 30px;
+  }
+
+  form {
+    padding: 10px 0 0 0;
+  }
+
+  form .form-row {
+    display: block;
+  }
+
+  form .form-row .input-data {
+    margin: 35px 0 !important;
+  }
+
+  .submit-btn .input-data {
+    width: 40% !important;
+  }
+}
+
+/* Contact Send Btn */
+.send-btn {
+  background: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.send-btn span {
+  display: block;
+  margin-left: 0.3em;
+  transition: all 0.3s ease-in-out;
+}
+
+.send-btn svg {
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.send-btn:hover .svg-wrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+.send-btn:hover svg {
+  transform: translateX(1.2em) rotate(45deg) scale(1.1);
+}
+
+.send-btn:hover span {
+  transform: translateX(5em);
+}
+
+.send-btn:active {
+  transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
+  }
+
+  to {
+    transform: translateY(-0.1em);
+  }
+}
+
+/* footer eye Animation*/
+:root {
+  --bubbleTiming: cubic-bezier(0.5,0.15,0.25,1.75);
+}
+
+.eye-label, .bubble {
+  display: block;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.eye-label {
+  animation: float 4s ease-in-out infinite;
+}
+
+.bubble, .bubble:before, .bubble:after {
+  transition-duration: 0.2s;
+}
+
+.bubble, .bubble:after {
+  border-radius: 50%;
+}
+
+.bubble {
+  background-image: radial-gradient(8% 8% at 22% 28%,hsl(0,0%,100%) 45%,hsla(0,0%,100%,0) 50%),
+		radial-gradient(8% 8% at 23% 27%,hsl(0,0%,100%) 45%,hsla(0,0%,100%,0) 50%),
+		radial-gradient(8% 8% at 24% 26%,hsl(0,0%,100%) 45%,hsla(0,0%,100%,0) 50%),
+		radial-gradient(8% 8% at 25% 25%,hsl(0,0%,100%) 45%,hsla(0,0%,100%,0) 50%),
+		radial-gradient(8% 8% at 26% 24%,hsl(0,0%,100%) 45%,hsla(0,0%,100%,0) 50%),
+		radial-gradient(8% 8% at 27% 23%,hsl(0,0%,100%) 45%,hsla(0,0%,100%,0) 50%),
+		radial-gradient(8% 8% at 28% 22%,hsl(0,0%,100%) 45%,hsla(0,0%,100%,0) 50%);
+  box-shadow: 0 -0.06em 0.1em hsl(0,90%,100%) inset,
+		0 -0.15em 0.4em hsl(0,90%,45%) inset,
+		0 0.05em 0.05em hsl(0,90%,45%) inset,
+		0.05em 0 0.1em hsl(0,90%,100%) inset,
+		-0.05em 0 0.1em hsl(0,90%,100%) inset,
+		0 0.1em 0.4em hsl(0,90%,60%) inset;
+  cursor: pointer;
+  position: relative;
+  width: 3em;
+  height: 3em;
+  transform-style: preserve-3d;
+  transition-property: box-shadow, transform, width, height;
+  transition-timing-function: ease-in-out, ease-in-out, var(--bubbleTiming), var(--bubbleTiming);
+  will-change: transform;
+  -webkit-appearance: none;
+  appearance: none;
+  z-index: 0;
+}
+
+.bubble:before, .bubble:after {
+  content: "";
+  display: block;
+  position: absolute;
+  transition-timing-function: var(--bubbleTiming);
+}
+
+.bubble:before {
+  border-radius: 0.75em;
+  box-shadow: 0 0 0 0.5em hsl(0,0%,100%) inset;
+  filter: drop-shadow(0.6em 0.6em 4px hsla(0,0%,0%,0.2));
+  top: 50%;
+  left: 50%;
+  width: 1.5em;
+  height: 1.5em;
+  transform: translate3d(-50%,-50%,-1px);
+  z-index: -1;
+}
+
+.bubble:after {
+  background: radial-gradient(100% 100% at center,hsla(0,0%,0%,0) 35%,hsla(0,0%,0%,0.2) 48%,hsla(0,0%,0%,0) 50%);
+  filter: blur(4px);
+  top: 0.6em;
+  left: 0.6em;
+  width: 100%;
+  height: 100%;
+  transform: translate3d(0,0,-1px);
+  z-index: -2;
+}
+
+.bubble:focus, .bubble:hover {
+  transform: scale(1.1);
+  outline: none;
+}
+
+.bubble:focus:active, .bubble:hover:active {
+  width: 3.6em;
+  height: 2.4em;
+}
+
+.bubble:focus:before, .bubble:hover:before {
+  filter: drop-shadow(0.75em 0.75em 4px hsla(0,0%,0%,0.2));
+}
+
+.bubble:focus:after, .bubble:hover:after {
+  transform: translate3d(0.15em,0.15em,-1px);
+}
+
+.bubble:checked {
+  box-shadow: 0 -0.06em 0.1em hsl(120,90%,100%) inset,
+		0 -0.15em 0.4em hsl(120,90%,45%) inset,
+		0 0.05em 0.05em hsl(120,90%,45%) inset,
+		0.05em 0 0.1em hsl(120,90%,100%) inset,
+		-0.05em 0 0.1em hsl(120,90%,100%) inset,
+		0 0.1em 0.4em hsl(120,90%,60%) inset;
+}
+
+.bubble:checked:before {
+  border-radius: 0.25em;
+  width: 0.5em;
+}
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .eye-label {
+    animation: none;
+  }
+
+  .bubble, .bubble:before, .bubble:after {
+    transition-duration: 0s;
+  }
+
+  .bubble:focus, .bubble:hover {
+    transform: scale(1);
+  }
+
+  .bubble:focus:active, .bubble:hover:active {
+    width: 3em;
+    height: 3em;
+  }
+
+  .bubble:focus:before, .bubble:hover:before {
+    filter: drop-shadow(0.6em 0.6em 4px hsla(0,0%,0%,0.2));
+  }
+
+  .bubble:focus:after, .bubble:hover:after {
+    transform: translate3d(0,0,-1px);
+  }
+}
+/* Animations */
+@keyframes float {
+  from, to {
+    transform: translate(0,3%);
+  }
+
+  25% {
+    transform: translate(-3%,0);
+  }
+
+  50% {
+    transform: translate(0,-3%);
+  }
+
+  75% {
+    transform: translate(3%,0);
+  }
+}
