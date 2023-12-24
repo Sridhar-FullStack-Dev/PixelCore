@@ -222,21 +222,6 @@ export const contactsCategory = [
   },
 ];
 
-export const contactsForm = [
-  {
-    label: "Your name",
-    type: "text",
-  },
-  {
-    label: "Your email",
-    type: "email",
-  },
-  {
-    label: "Tell us about your project",
-    type: "text",
-  },
-];
-
 export const footerMarquee = [
   {
     content: "UI/UX Design",

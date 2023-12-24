@@ -3,7 +3,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { GrAttachment } from "react-icons/gr";
-import { contactsCategory, contactsForm } from "@/app/Utils";
+import { TiTickOutline } from "react-icons/ti";
+import { contactsCategory } from "@/app/Utils";
 
 const variants = {
   clicked: { color: "#afff54", borderColor: "#afff54" },
@@ -19,13 +20,46 @@ export default function ContactUs() {
   const [isClicked, setIsClicked] = useState(false);
   const [clickedInput, setClickedInput] = useState(null);
   const [selectedFile, setSelectedFile] = useState();
+  const [Loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [description, setDescription] = useState("");
+  const sendMail = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/Email", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          description,
+        }),
+      });
+
+      if (response.ok) {
+        console.log(await response.json());
+        setSuccess(true);
+      } else {
+        console.log("Failed", response.status);
+        setSuccess(false);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSuccess(false);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleClick = (index) => {
     setIsClicked(index);
-  };
-
-  const handleInputClick = (key) => {
-    setClickedInput(key);
   };
 
   const handleFileUpload = (event) => {
@@ -34,10 +68,16 @@ export default function ContactUs() {
 
   return (
     <div className="sm:h-[150vh] md:h-screen w-full">
-      <video autoPlay muted playsInline loop className="absolute z-10 w-full sm:h-[150vh] md:h-screen object-cover">
+      <video
+        autoPlay
+        muted
+        playsInline
+        loop
+        className="absolute z-10 w-full sm:h-[150vh] md:h-screen object-cover"
+      >
         <source src="/video.mp4" type="video/mp4" />
       </video>
-      
+
       <div className="relative z-20 flex sm:flex-col md:flex-row w-full justify-between sm:gap-4 md:gap-16 md:p-8">
         {/* left */}
         <div className="flex flex-col justify-between items-start p-8">
@@ -70,61 +110,117 @@ export default function ContactUs() {
             </div>
             <div>I'm interested in...</div>
 
-            {/* Categories */}
-            <div className="flex sm:flex-col md:flex-row gap-4 py-4">
-              {contactsCategory.map((category, index) => (
-                <motion.div
-                  variants={variants}
-                  animate={isClicked === index ? "clicked" : "notClicked"}
-                  onClick={() => handleClick(index)}
-                  className="border-2 bg-black h-8 w-auto font-roboto flex justify-center items-center whitespace-nowrap p-2 cursor-default"
-                  key={index}
-                >
-                  {category.name}
-                </motion.div>
-              ))}
-            </div>
-
             {/* Form Fields */}
             <div className="flex flex-col">
-              <form>
-                {contactsForm.map((forms, key) => (
-                  <motion.div
-                    key={key}
-                    className="form-row"
-                    variants={inputVariants}
-                    animate={clickedInput === key ? "clicked" : "notClicked"}
-                    onClick={() => handleInputClick(key)}
-                  >
-                    <div className="input-data">
-                      <motion.input
-                        className="bg-black w-full text-sm font-body outline-none"
-                        type={forms.type}
-                        required
-                      />
-                      <div className="underline"></div>
-                      <label htmlFor="" className="font-base font-body">
-                        {forms.label}
-                      </label>
-                    </div>
-                  </motion.div>
-                ))}
+              <form onSubmit={sendMail}>
+                {/* Categories */}
+                <div className="flex sm:flex-col md:flex-row gap-4 py-4">
+                  {contactsCategory.map((category, index) => (
+                    <motion.div
+                      variants={variants}
+                      animate={isClicked === index ? "clicked" : "notClicked"}
+                      onClick={() => handleClick(index)}
+                      className="border-2 bg-black h-8 w-auto font-roboto flex justify-center items-center whitespace-nowrap p-2 cursor-default"
+                      key={index}
+                    >
+                      {category.name}
+                    </motion.div>
+                  ))}
+                </div>
 
+                {/* Inputs fields */}
+                <motion.div
+                  className="form-row"
+                  variants={inputVariants}
+                  animate={clickedInput ? "clicked" : "notClicked"}
+                >
+                  <div className="input-data">
+                    <motion.input
+                      name="name"
+                      type="text"
+                      id="name"
+                      required
+                      value={name}
+                      onChange={(e) => {
+                        setName(e.target.value);
+                      }}
+                      className="bg-black w-full text-sm font-body outline-none"
+                    />
+                    <div className="underline"></div>
+                    <label htmlFor="name" className="font-base font-body">
+                      Your name
+                    </label>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  className="form-row"
+                  variants={inputVariants}
+                  animate={clickedInput ? "clicked" : "notClicked"}
+                >
+                  <div className="input-data">
+                    <motion.input
+                      className="bg-black w-full text-sm font-body outline-none"
+                      type="email"
+                      cols={10}
+                      rows={5}
+                      name="email"
+                      id="email"
+                      value={email}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                      }}
+                    />
+                    <div className="underline"></div>
+                    <label htmlFor="email" className="font-base font-body">
+                      Your email
+                    </label>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  className="form-row"
+                  variants={inputVariants}
+                  animate={clickedInput ? "clicked" : "notClicked"}
+                >
+                  <div className="input-data">
+                    <motion.input
+                      className="bg-black w-full text-sm font-body outline-none"
+                      name="description"
+                      type="text"
+                      id="description"
+                      required
+                      value={description}
+                      onChange={(e) => {
+                        setDescription(e.target.value);
+                      }}
+                    />
+                    <div className="underline"></div>
+                    <label
+                      htmlFor="description"
+                      className="font-base font-body"
+                    >
+                      Tell us about your project
+                    </label>
+                  </div>
+                </motion.div>
                 {/* Attachment btn */}
-
-                <div className="flex">
+                <div
+                  className="flex sm:flex-col md:flex-row"
+                  title="You can choose a file by clicking this"
+                >
                   <input
                     type="file"
                     id="file-upload"
                     style={{ display: "none" }}
                     onChange={handleFileUpload}
-                    required
                   />
+
                   <button
                     className={
                       selectedFile
-                        ? "text-[#afff54] bg-black border-nonefont-body flex items-center justify-center gap-1"
-                        : "text-white bg-black border-none  font-body flex items-center justify-center gap-1"
+                        ? "text-[#afff54] bg-black border-none font-body flex items-center justify-center gap-1"
+                        : "text-white bg-black border-none font-body flex items-center justify-center gap-1"
                     }
                     onClick={() =>
                       document.getElementById("file-upload").click()
@@ -132,7 +228,7 @@ export default function ContactUs() {
                     type="button"
                   >
                     <GrAttachment />
-                    <div>
+                    <div className="whitespace-nowrap">
                       {selectedFile ? "Selected Attachment" : "Add attachment"}
                     </div>
                   </button>
@@ -144,24 +240,32 @@ export default function ContactUs() {
                 </div>
 
                 {/* Send btn */}
-                <button className="send-btn py-4 mt-4" type="submit">
+                <button className="send-btn mt-4" type="submit">
                   <div className="svg-wrapper-1">
                     <div className="svg-wrapper">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        width="20"
-                        height="20"
-                      >
-                        <path fill="none" d="M0 0h24v24H0z"></path>
-                        <path
-                          fill="currentColor"
-                          d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
-                        ></path>
-                      </svg>
+                      {Loading ? (
+                        <span className="contact-btn-loader"></span>
+                      ) : success ? (
+                        <TiTickOutline className="text-[#CEF34A] text-2xl"/>
+                      ) : (
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          width="20"
+                          height="20"
+                        >
+                          <path fill="none" d="M0 0h24v24H0z"></path>
+                          <path
+                            fill="currentColor"
+                            d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                          ></path>
+                        </svg>
+                      )}
                     </div>
                   </div>
-                  <span className="font-body text-base">Send</span>
+                  <span className="font-body text-base">
+                    {Loading ? "Sending.." : success ? "Sent" : "Send"}
+                  </span>
                 </button>
               </form>
             </div>

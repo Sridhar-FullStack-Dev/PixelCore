@@ -1,11 +1,10 @@
-import { servicesSection } from "@/app/Utils";
-import { motion, AnimatePresence } from "framer-motion";
-import { BsArrowLeftSquareFill } from "react-icons/bs";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
+import { services2, servicesSection } from "@/app/Utils";
+import { useState, useRef, useEffect } from "react";
+import { BsArrowLeftSquareFill } from "react-icons/bs";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Services() {
   const [isClicked, setIsClicked] = useState(null);
@@ -47,16 +46,16 @@ export default function Services() {
       </div>
 
       {/* Middle */}
-      <div className="grid sm:grid-cols-2 p-4 transition-all">
+      <div className="grid grid-cols-2 grid-rows-4 pt-8 pb-10 gap-6 transition-all sm:px-8">
         {servicesSection.map((services, key) => (
           <div
             key={key}
-            className="h-40 w-32 p-4 cursor-pointer"
+            className="h-32 w-36 cursor-pointer text-sm overflow-hidden bg-blue-600 bg-opacity-5 p-4"
             onClick={() => handleClick(services)}
             title={services.service}
           >
-            <div className="text-sm text-gray-400">{services.num}</div>
-            <div className="mt-4">{services.service}</div>
+            <div className=" text-gray-400">{services.num}</div>
+            <h1 className="mt-4 text-base text-left">{services.service}</h1>
           </div>
         ))}
       </div>

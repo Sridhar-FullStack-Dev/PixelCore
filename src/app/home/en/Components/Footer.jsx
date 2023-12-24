@@ -119,7 +119,7 @@ export default function Footer() {
           </div>
 
           {/* Middle */}
-          <div className="flex sm:flex-col md:flex-row w-full justify-between items-center px-4 mt-14">
+          <div className="flex sm:flex-col md:flex-row w-full justify-between items-center px-4 mt-14 relative z-10">
             <div className="pt-4">
               <h1 className="font-body text-[#D3D3D3] text-lg flex justify-center items-center gap-4">
                 we are working with these frameworks
@@ -222,9 +222,8 @@ export default function Footer() {
 
         <div
           data-scroll
-          data-scroll-orientation="horizontal"
           data-scroll-speed="0.2"
-          className="logo-bottom absolute bottom-20 right-0 text-[#fff] opacity-5 w-[104%] whitespace-nowrap text-[8rem] text-justify"
+          className="logo-bottom cursor-default absolute bottom-20 right-0 text-[#fff] opacity-5 w-[104%] whitespace-nowrap text-[8rem] text-justify"
         >
           Pixel Core
         </div>
