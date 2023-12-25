@@ -119,75 +119,83 @@ export const Services = [
 export const servicesSection = [
   {
     num: "01",
-    service: "Website Development",
-    color: "bg-[#87CEEB]",
+    service: "Website development",
+    color: "bg-blue-500",
+    text: "text-white",
     img: "webpage.png",
     heading: "Web & Web App Development",
     content:
-      "Building beautiful and easy-to-use websites, and creating powerful apps that work smoothly—making your online experience enjoyable and hassle-free.",
+      "We turn your ideas into websites and apps! Our team creates online spaces that look great and work smoothly. Whether you're building a website or something more interactive, we've got the expertise to make it happen, just the way you imagine example: E-commerce site",
   },
   {
     num: "02",
-    service: "UI/UX Design",
-    color: "bg-[#98FB98]",
+    service: "AI integration service",
+    color: "bg-yellow-500",
+    text: "text-black",
+    img: "ai.png",
+    heading: "AI Serivices",
+    content:
+      "We are working with an AI to provide these services. AI-Powered Automation, ChatBot, Predictive Analytics, Image and Video Recognition, Recommendation Systems, AI-driven Personalization, Sentiment Analysis",
+  },
+  {
+    num: "03",
+    service: "Digital marketing",
+    color: "bg-indigo-500",
+    text: "text-white",
+    img: "bullhorn.png",
+    heading: "Digital Marketing",
+    content:
+      "We're the digital storytellers for your business. Using social media, clever ads, and smart strategies, we make sure your brand is seen by the right people at the right time. Let's tell your story in the digital world!",
+  },
+  {
+    num: "04",
+    service: "Software development",
+    color: "bg-purple-500",
+    text: "text-black",
+    img: "software.png",
+    heading: "Software Development",
+    content:
+      "Ever wish you had a custom solution for your unique needs? That's what we do! We craft software that fits you perfectly, whether it's a helpful app or a program that makes your work a breeze",
+  },
+  {
+    num: "05",
+    service: "Mobile app development",
+    color: "bg-pink-500",
+    text: "text-white",
+    img: "mobile-app.png",
+    heading: "Mobile App Development",
+    content:
+      "Imagine an app that fits right into your pocket and does exactly what you want. That's what we do – turning your ideas into apps that are simple, powerful, and ready to use on your mobile device",
+  },
+  {
+    num: "06",
+    service: "Content management system",
+    color: "bg-orange-500",
+    text: "text-black",
+    img: "cms.png",
+    heading: "Content Management System (CMS)",
+    content:
+      "Empower your digital presence effortlessly with our Content Management System (CMS). Seamlessly create, edit, and organize content on your website, freeing you to focus on what matters most—building engaging experiences for your audience. Take control of your online narrative with user-friendly tools designed to enhance efficiency and creativity.",
+  },
+  {
+    num: "07",
+    service: "Hosting service",
+    color: "bg-red-500",
+    text: "text-white",
+    img: "hosting.png",
+    heading: "Hosting as a Service",
+    content:
+      "Elevate your web presence with our hosting service. Experience unmatched speed, security, and reliability. Whether you're a startup or an enterprise, our scalable solutions ensure your website stays online and performs at its best, 24/7. Choose hosting that grows with you.",
+  },
+  {
+    num: "08",
+    service: "UI/UX design",
+    color: "bg-green-500",
+    text: "text-white",
     img: "ui.png",
     heading: "UI/UX Designing",
     content:
       "Crafting captivating user experiences through expert Front End web development, while delivering dynamic and scalable Web app solutions that seamlessly blend innovation with functionality",
-  },
-  {
-    num: "03",
-    service: "Digital Marketing",
-    color: "bg-[#FF6F61]",
-    img: "bullhorn.png",
-    heading: "Digital Marketing",
-    content:
-      "Elevating your online presence with strategic digital marketing solutions that boost visibility, engage audiences, and drive meaningful results for your business.",
-  },
-  {
-    num: "04",
-    service: "Software Development",
-    color: "bg-[#DAA520]",
-    img: "software.png",
-    heading: "Software Development",
-    content:
-      "Empowering your business with seamless mobile app development, creating intuitive and engaging applications that enhance user experiences and drive your digital success.",
-  },
-  {
-    num: "05",
-    service: "Mobile App Development",
-    color: "bg-[#FF66CC]",
-    img: "webpage.png",
-    heading: "Web & Web App Development",
-    content:
-      "Building beautiful and easy-to-use websites, and creating powerful apps that work smoothly—making your online experience enjoyable and hassle-free.",
-  },
-  {
-    num: "06",
-    service: "Agile development",
-    color: "bg-[#40E0D0]",
-    img: "webpage.png",
-    heading: "Agile based development",
-    content:
-      "Embracing Agile principles, we deliver dynamic and iterative software solutions, fostering collaboration, adaptability, and rapid value delivery for your evolving business needs.",
-  },
-  {
-    num: "07",
-    service: "Web Development",
-    color: "bg-[#9966CC]",
-    img: "webpage.png",
-    heading: "Web & Web App Development",
-    content:
-      "Building beautiful and easy-to-use websites, and creating powerful apps that work smoothly—making your online experience enjoyable and hassle-free.",
-  },
-  {
-    num: "08",
-    service: "Web Development",
-    color: "bg-[#FFFF99]",
-    img: "webpage.png",
-    heading: "Web & Web App Development",
-    content:
-      "Building beautiful and easy-to-use websites, and creating powerful apps that work smoothly—making your online experience enjoyable and hassle-free.",
   },
 ];
 
@@ -206,10 +214,10 @@ export const scenariosDiv = [
 
 export const contactsCategory = [
   {
-    name: "UI/UX Design",
+    name: "Stunning Websites",
   },
   {
-    name: "Stunning Websites",
+    name: "App Dev",
   },
   {
     name: "Branding",

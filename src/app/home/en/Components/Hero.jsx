@@ -3,13 +3,14 @@ import gsap from "gsap";
 import Link from "next/link";
 import Image from "next/image";
 import SwiperJS from "./Swiper";
-
-import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { RiLinksLine } from "react-icons/ri";
+import { HiOutlineShare } from "react-icons/hi";
+import { useRef, useEffect, useState } from "react";
 
 export default function Hero() {
   const buttonRef = useRef(null);
+  const [isCopied, setIsCopied] = useState(false);
 
   useEffect(() => {
     gsap.to(buttonRef.current, {
@@ -21,11 +22,23 @@ export default function Hero() {
     });
   }, []);
 
+  const handleCopyToClipboard = () => {
+    const urlToCopy = "https://google.com";
+    navigator.clipboard.writeText(urlToCopy).then(
+      () => {
+        setIsCopied(true);
+        setTimeout(() => setIsCopied(false), 2000);
+      },
+      (err) => {
+        console.error("Unable to copy text to clipboard", err);
+      }
+    );
+  };
   return (
     <>
       <SwiperJS />
 
-      <div className="py-8 px-4 sm:h-[45rem] md:h-96 w-full flex sm:flex-col md:flex-row gap-6 justify-between">
+      <div className="py-8 px-4 sm:h-[45rem] md:h-[50rem] lg:h-96 w-full flex sm:flex-col lg:flex-row gap-6 justify-between">
         {/* Left */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -35,7 +48,7 @@ export default function Hero() {
             delay: 0.5,
             duration: 1,
           }}
-          className="md:w-[60%] sm:w-full"
+          className="lg:w-[60%] sm:w-full"
         >
           <div>
             <div className="relative" data-scroll data-scroll-speed="0.1">
@@ -63,6 +76,16 @@ export default function Hero() {
                   </div>
                 </Link>
               </motion.div>
+
+              <div className="h-20 w-20 bg-white rounded-full absolute bottom-5 right-5 flex items-center justify-center">
+                <button onClick={handleCopyToClipboard} className="font-body">
+                  {isCopied ? (
+                    "Copied!"
+                  ) : (
+                    <HiOutlineShare className="text-4xl" />
+                  )}
+                </button>
+              </div>
             </div>
           </div>
         </motion.div>
@@ -77,9 +100,13 @@ export default function Hero() {
             delay: 0.3,
             duration: 0.5,
           }}
-          className="sm:w-full md:w-[40%]"
+          className="sm:w-full lg:w-[40%]"
         >
-          <div className="flex items-center justify-center" data-scroll data-scroll-speed="0.1">
+          <div
+            className="flex items-center justify-center"
+            data-scroll
+            data-scroll-speed="0.1"
+          >
             <Image
               src={
                 "https://images.pexels.com/photos/904276/pexels-photo-904276.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"

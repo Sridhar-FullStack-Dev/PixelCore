@@ -36,7 +36,7 @@ export default function Footer() {
   }, []);
   return (
     <>
-      <div className="h-screen bg-black relative">
+      <div className="sm:h-screen lg:h-[80vh] xl:h-screen bg-black relative">
         <div className="p-2 text-white bg-white bg-opacity-5">
           <motion.div
             animate={{ x: "-100%" }}
@@ -75,7 +75,7 @@ export default function Footer() {
 
         <div className="p-4">
           <div className="flex md:px-4">
-            <div className="font-lexico uppercase sm:text-[2rem] md:text-8xl text-[#f5f5f5] whitespace-nowrap">
+            <div className="font-lexico uppercase sm:text-[2rem] md:text-5xl lg:text-7xl xl:text-8xl text-[#f5f5f5] whitespace-nowrap">
               <h1>
                 Let's unite for <span className="sm:hidden md:inline">an</span>
               </h1>
@@ -90,36 +90,18 @@ export default function Footer() {
                       alt=""
                       height={1000}
                       width={1000}
-                      className="h-24 w-72 rounded-full object-cover"
+                      className="sm:h-24 md:h-20 lg:h-24 w-72 rounded-full object-cover"
                     />
                   </div>
                 </div>
               </h1>
             </div>
-            {/* <div>
-              <motion.div
-                drag
-                dragConstraints={{
-                  top: -50,
-                  left: -50,
-                  right: 50,
-                  bottom: 50,
-                }}
-              >
-                <label className="eye-label">
-                  <input
-                    value="on"
-                    name="dummy"
-                    type="checkbox"
-                    className="bubble"
-                  />
-                </label>
-              </motion.div>
-            </div> */}
           </div>
 
           {/* Middle */}
           <div className="flex sm:flex-col md:flex-row w-full justify-between items-center px-4 mt-14 relative z-10">
+
+            {/* Frameworks */}
             <div className="pt-4">
               <h1 className="font-body text-[#D3D3D3] text-lg flex justify-center items-center gap-4">
                 we are working with these frameworks
@@ -141,7 +123,7 @@ export default function Footer() {
             </div>
 
             {/* Socials */}
-            <div className="pt-4 sm:w-full md:w-auto">
+            <div className="sm:w-full md:w-auto">
               <h1 className="font-body text-[#D3D3D3] text-lg mt-4 flex sm:justify-start md:justify-end items-center">
                 Connect with us Via socials
               </h1>
@@ -171,7 +153,7 @@ export default function Footer() {
           <div className="w-full h-[1px] bg-white bg-opacity-5 mb-3"></div>
 
           <div className="flex sm:flex-col md:flex-row justify-between items-center">
-            <div className="flex gap-4 items-center justify-center whitespace-nowrap sm:text-[12px] md:text-base">
+            <div className="flex gap-4 items-center justify-center whitespace-nowrap sm:text-[15px] md:text-[11px] lg:text-[14px] xl:text-base">
               <Link href={"/"} className="">
                 <motion.h1
                   whileHover={{ color: "#cef34a" }}
@@ -199,7 +181,7 @@ export default function Footer() {
               </motion.div>
             </div>
 
-            <div className="flex sm:gap-2 md:gap-4 sm:text-[8px] md:text-base items-center justify-center sm:px-2 md:px-0">
+            <div className="flex sm:gap-2 md:gap-4 sm:text-[9px] md:text-[11px] lg:text-[14px] xl:text-base items-center justify-center sm:px-2 md:px-0">
               {footerBottom2.map((bottom2, footerbottom2) => (
                 <div key={footerbottom2} className="whitespace-nowrap">
                   <Link href={bottom2.href}>
@@ -223,7 +205,7 @@ export default function Footer() {
         <div
           data-scroll
           data-scroll-speed="0.2"
-          className="logo-bottom cursor-default absolute bottom-20 right-0 text-[#fff] opacity-5 w-[104%] whitespace-nowrap text-[8rem] text-justify"
+          className="logo-bottom cursor-default absolute bottom-20 right-0 text-[#fff] opacity-5 w-[104%] whitespace-nowrap md:text-7xl lg:text-8xl xl:text-9xl text-justify"
         >
           Pixel Core
         </div>

@@ -20,10 +20,10 @@ export default function AboutUs() {
   return (
     <>
       <div className="p-8 w-full">
-        <div className="flex justify-between sm:flex-col lg:flex-row">
+        <div className="flex justify-between sm:flex-col md:flex-row">
           <div className="">
             <h1 className="font-roboto text-gray-400 text-lg">about</h1>
-            <div className="font-body font-bold tracking-wide md:text-7xl sm:text-6xl lg:text-8xl text-justify px-2 py-8 2xl:text-[10rem]">
+            <div className="font-body font-bold tracking-wide md:text-7xl sm:text-6xl lg:text-7xl xl:text-8xl text-justify px-2 py-8 2xl:text-[10rem]">
               <motion.div
                 initial={{ opacity: 0, x: "-10px" }}
                 whileInView={{ x: 0, opacity: 1 }}
@@ -84,7 +84,7 @@ export default function AboutUs() {
 
           {/* right */}
           <div className="w-1/2">
-            <div className="font-body sm:text-[1.3rem] md:text-4xl tracking-wide w-96 whitespace-nowrap py-16">
+            <div className="font-body sm:text-[1.3rem] lg:text-3xl xl:text-4xl tracking-wide w-96 whitespace-nowrap py-16">
               We offer most creative <br /> business solutions for elevate
               <br />
               your&nbsp;

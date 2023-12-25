@@ -67,32 +67,32 @@ export default function ContactUs() {
   };
 
   return (
-    <div className="sm:h-[150vh] md:h-screen w-full">
+    <div className="sm:h-[150vh] lg:h-[90vh] xl:h-screen w-full">
       <video
         autoPlay
         muted
         playsInline
         loop
-        className="absolute z-10 w-full sm:h-[150vh] md:h-screen object-cover"
+        className="absolute z-10 w-full sm:h-[150vh] lg:h-[90vh] xl:h-screen object-cover"
       >
         <source src="/video.mp4" type="video/mp4" />
       </video>
 
-      <div className="relative z-20 flex sm:flex-col md:flex-row w-full justify-between sm:gap-4 md:gap-16 md:p-8">
+      <div className="relative z-20 flex sm:flex-col lg:flex-row w-full justify-between sm:gap-4 lg:gap-0 xl:gap-16 lg:p-8">
         {/* left */}
         <div className="flex flex-col justify-between items-start p-8">
-          <button className="font-bold uppercase text-white sm:hidden md:block">
+          <button className="font-bold uppercase text-white sm:hidden lg:block">
             <Link href={"/"}>
               <div id="ui">Pixel</div> Core
             </Link>
           </button>
 
-          <div className="flex sm:flex-col font-body font-bold sm:text-[1.8rem] md:text-6xl w-[30rem] text-white">
+          <div className="flex sm:flex-col font-body font-bold sm:text-[1.8rem] lg:text-5xl xl:text-6xl w-[30rem] text-white">
             <div>Have a project? </div>
             <div>We would love to help.</div>
           </div>
 
-          <div className="font-body sm:text-[12px] md:text-sm text-white">
+          <div className="font-body sm:text-[12px] lg:text-sm text-white">
             <Link href={"mailto:sridhar22122002@gmail.com"}>
               sridhar22122002@gmail.com
             </Link>
@@ -100,8 +100,8 @@ export default function ContactUs() {
         </div>
 
         {/* right */}
-        <div className="sm:p-8 md:p-0">
-          <div className="bg-black text-white font-display p-8 w-full">
+        <div className="sm:p-8 lg:p-0">
+          <div className="bg-black text-white font-display p-8 sm:w-full lg:w-[68%] xl:w-full">
             <div className="flex justify-between w-full items-center">
               <div></div>
               <div className="flex items-center justify-center font-bold font-body">
@@ -114,13 +114,13 @@ export default function ContactUs() {
             <div className="flex flex-col">
               <form onSubmit={sendMail}>
                 {/* Categories */}
-                <div className="flex sm:flex-col md:flex-row gap-4 py-4">
+                <div className="flex sm:flex-col md:flex-row gap-4 py-4 overflow-hidden">
                   {contactsCategory.map((category, index) => (
                     <motion.div
                       variants={variants}
                       animate={isClicked === index ? "clicked" : "notClicked"}
                       onClick={() => handleClick(index)}
-                      className="border-2 bg-black h-8 w-auto font-roboto flex justify-center items-center whitespace-nowrap p-2 cursor-default"
+                      className="border-2 bg-black h-8 w-auto font-roboto flex justify-center items-center whitespace-nowrap p-2 cursor-default lg:text-[0.8rem] xl:text-base"
                       key={index}
                     >
                       {category.name}
@@ -144,7 +144,7 @@ export default function ContactUs() {
                       onChange={(e) => {
                         setName(e.target.value);
                       }}
-                      className="bg-black w-full text-sm font-body outline-none"
+                      className="bg-black w-full text-sm font-body outline-none focus:bg-transparent"
                     />
                     <div className="underline"></div>
                     <label htmlFor="name" className="font-base font-body">
@@ -160,10 +160,8 @@ export default function ContactUs() {
                 >
                   <div className="input-data">
                     <motion.input
-                      className="bg-black w-full text-sm font-body outline-none"
+                      className="bg-black w-full text-sm font-body outline-none focus:bg-transparent"
                       type="email"
-                      cols={10}
-                      rows={5}
                       name="email"
                       id="email"
                       value={email}
@@ -185,7 +183,7 @@ export default function ContactUs() {
                 >
                   <div className="input-data">
                     <motion.input
-                      className="bg-black w-full text-sm font-body outline-none"
+                      className="bg-black w-full text-sm font-body outline-none focus:bg-transparent"
                       name="description"
                       type="text"
                       id="description"
@@ -206,7 +204,7 @@ export default function ContactUs() {
                 </motion.div>
                 {/* Attachment btn */}
                 <div
-                  className="flex sm:flex-col md:flex-row"
+                  className="flex sm:flex-col lg:flex-row"
                   title="You can choose a file by clicking this"
                 >
                   <input
@@ -219,8 +217,8 @@ export default function ContactUs() {
                   <button
                     className={
                       selectedFile
-                        ? "text-[#afff54] bg-black border-none font-body flex items-center justify-center gap-1"
-                        : "text-white bg-black border-none font-body flex items-center justify-center gap-1"
+                        ? "text-[#afff54] bg-black border-none font-body flex items-center gap-1"
+                        : "text-white bg-black border-none font-body flex items-center gap-1"
                     }
                     onClick={() =>
                       document.getElementById("file-upload").click()
@@ -233,7 +231,7 @@ export default function ContactUs() {
                     </div>
                   </button>
                   {selectedFile && (
-                    <p className="font-display text-sm flex items-center justify-center pl-8">
+                    <p className="font-display text-sm flex items-center pl-8">
                       {selectedFile.name}
                     </p>
                   )}
