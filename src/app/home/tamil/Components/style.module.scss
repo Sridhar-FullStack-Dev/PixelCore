@@ -91,7 +91,6 @@
   position: relative;
   background-color: white;
   z-index: 50;
-  overflow: hidden;
   .slider {
     display: flex;
     position: relative;
@@ -124,7 +123,7 @@
       background-color: white;
       z-index: 1;
       position: absolute;
-      box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+      box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     }
   }
 }
