@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { GrAttachment } from "react-icons/gr";
 import { TiTickOutline } from "react-icons/ti";
-import { contactsCategory } from "@/app/Utils";
+import { contactsCategoryTamil } from "@/app/Utils";
 
 const variants = {
   clicked: { color: "#afff54", borderColor: "#afff54" },
@@ -87,9 +87,9 @@ export default function ContactUs() {
             </Link>
           </button>
 
-          <div className="flex sm:flex-col font-body font-bold sm:text-[1.8rem] lg:text-5xl xl:text-6xl w-[30rem] text-white">
-            <div>Have a project? </div>
-            <div>We would love to help.</div>
+          <div className="flex sm:flex-col font-body font-bold sm:text-lg lg:text-4xl xl:text-5xl w-[30rem] text-white">
+            <div>ஏதாவது திட்டம் உள்ளதா? </div>
+            <div>நாங்கள் உதவ விரும்புகிறோம்.</div>
           </div>
 
           <div className="font-body sm:text-[12px] lg:text-sm text-white">
@@ -115,7 +115,7 @@ export default function ContactUs() {
               <form onSubmit={sendMail}>
                 {/* Categories */}
                 <div className="flex sm:flex-col md:flex-row gap-4 py-4 overflow-hidden">
-                  {contactsCategory.map((category, index) => (
+                  {contactsCategoryTamil.map((category, index) => (
                     <motion.div
                       variants={variants}
                       animate={isClicked === index ? "clicked" : "notClicked"}
@@ -148,7 +148,7 @@ export default function ContactUs() {
                     />
                     <div className="underline"></div>
                     <label htmlFor="name" className="font-base font-body">
-                      Your name
+                      உங்கள் பெயர்
                     </label>
                   </div>
                 </motion.div>
@@ -171,7 +171,7 @@ export default function ContactUs() {
                     />
                     <div className="underline"></div>
                     <label htmlFor="email" className="font-base font-body">
-                      Your email
+                      உங்கள் ஈமெயில்
                     </label>
                   </div>
                 </motion.div>
@@ -198,7 +198,7 @@ export default function ContactUs() {
                       htmlFor="description"
                       className="font-base font-body"
                     >
-                      Tell us about your project
+                      உங்கள் திட்டத்தைப் பற்றி சொல்லுங்கள்
                     </label>
                   </div>
                 </motion.div>
@@ -227,7 +227,7 @@ export default function ContactUs() {
                   >
                     <GrAttachment />
                     <div className="whitespace-nowrap">
-                      {selectedFile ? "Selected Attachment" : "Add attachment"}
+                      {selectedFile ? "தேர்ந்தெடுத்த இணைப்பு" : "இணைப்பைச் சேர்க்கவும்"}
                     </div>
                   </button>
                   {selectedFile && (
@@ -244,7 +244,7 @@ export default function ContactUs() {
                       {Loading ? (
                         <span className="contact-btn-loader"></span>
                       ) : success ? (
-                        <TiTickOutline className="text-[#CEF34A] text-2xl"/>
+                        <TiTickOutline className="text-[#CEF34A] text-2xl" />
                       ) : (
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -262,7 +262,7 @@ export default function ContactUs() {
                     </div>
                   </div>
                   <span className="font-body text-base">
-                    {Loading ? "Sending.." : success ? "Sent" : "Send"}
+                    {Loading ? "அனுப்புகிறது.." : success ? "அனுப்பப்பட்டது" : "அனுப்பு"}
                   </span>
                 </button>
               </form>
