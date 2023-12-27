@@ -40,7 +40,7 @@ export default function Footer() {
   }, []);
   return (
     <>
-      <div className="sm:h-screen lg:h-[80vh] xl:h-screen bg-black relative">
+      <div className="sm:h-screen lg:h-[80vh] xl:h-screen w-full bg-black relative">
         <div className="p-2 text-white bg-white bg-opacity-5">
           <motion.div
             animate={{ x: "-100%" }}
@@ -106,7 +106,7 @@ export default function Footer() {
           <div className="flex sm:flex-col md:flex-row w-full justify-between items-center px-4 mt-14 relative z-10">
             {/* Frameworks */}
             <div className="pt-4">
-              <h1 className="font-body text-[#D3D3D3] text-lg flex justify-center items-center gap-4">
+              <h1 className="font-body text-[#D3D3D3] text-lg flex justify-left items-center gap-4">
                 எண்களின் கட்டமைப்புகள்
               </h1>
               <div className="flex text-4xl gap-4 pt-4 text-white">
@@ -128,7 +128,7 @@ export default function Footer() {
             {/* Socials */}
             <div className="sm:w-full md:w-auto">
               <h1 className="font-body text-[#D3D3D3] text-lg mt-4 flex sm:justify-start md:justify-end items-center">
-                சமூக தளம்
+                எண்களின் சமூக தளம்
               </h1>
               <div className="flex text-4xl gap-4 pt-4 text-white">
                 <Link href={"/"} title="GitHub">
@@ -152,7 +152,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="text-[#6e6d7a] px-6 py-4 font-body absolute bottom-0 w-full">
+        <div className="text-[#6e6d7a] px-6 py-4 font-body absolute bottom-0 w-full mt-16">
           <div className="w-full h-[1px] bg-white bg-opacity-5 mb-3"></div>
 
           <div className="flex sm:flex-col md:flex-row justify-between items-center">

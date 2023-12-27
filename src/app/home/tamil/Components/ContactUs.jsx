@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { GrAttachment } from "react-icons/gr";
 import { TiTickOutline } from "react-icons/ti";
 import { contactsCategoryTamil } from "@/app/Utils";
+import Image from "next/image";
 
 const variants = {
   clicked: { color: "#afff54", borderColor: "#afff54" },
@@ -73,10 +74,20 @@ export default function ContactUs() {
         muted
         playsInline
         loop
-        className="absolute z-10 w-full sm:h-[150vh] lg:h-[90vh] xl:h-screen object-cover"
+        className="absolute z-10 w-full sm:hidden md:block sm:h-[150vh] lg:h-[90vh] xl:h-screen object-cover"
       >
         <source src="/video.mp4" type="video/mp4" />
       </video>
+
+      <Image
+        src={
+          "https://images.pexels.com/photos/14353572/pexels-photo-14353572.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        }
+        alt=""
+        height={2000}
+        width={2000}
+        className="absolute z-10 sm:h-[150vh] lg:h-[90vh] xl:h-screen object-cover md:hidden"
+      />
 
       <div className="relative z-20 flex sm:flex-col lg:flex-row w-full justify-between sm:gap-4 lg:gap-0 xl:gap-16 lg:p-8">
         {/* left */}
@@ -227,7 +238,9 @@ export default function ContactUs() {
                   >
                     <GrAttachment />
                     <div className="whitespace-nowrap">
-                      {selectedFile ? "தேர்ந்தெடுத்த இணைப்பு" : "இணைப்பைச் சேர்க்கவும்"}
+                      {selectedFile
+                        ? "தேர்ந்தெடுத்த இணைப்பு"
+                        : "இணைப்பைச் சேர்க்கவும்"}
                     </div>
                   </button>
                   {selectedFile && (
@@ -262,7 +275,11 @@ export default function ContactUs() {
                     </div>
                   </div>
                   <span className="font-body text-base">
-                    {Loading ? "அனுப்புகிறது.." : success ? "அனுப்பப்பட்டது" : "அனுப்பு"}
+                    {Loading
+                      ? "அனுப்புகிறது.."
+                      : success
+                      ? "அனுப்பப்பட்டது"
+                      : "அனுப்பு"}
                   </span>
                 </button>
               </form>

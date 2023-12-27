@@ -1,8 +1,9 @@
 "use client";
+import styles from "./style.module.scss";
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
-const opacity = {
+export const opacity = {
   initial: {
     opacity: 0,
   },
@@ -12,7 +13,7 @@ const opacity = {
   },
 };
 
-const slideUp = {
+export const slideUp = {
   initial: {
     top: 0,
   },
@@ -34,8 +35,7 @@ const words = [
   "Hello",
 ];
 
-export default function Preloader() {
-  const [isLoading, setIsLoading] = useState(true);
+export default function Index() {
   const [index, setIndex] = useState(0);
   const [dimension, setDimension] = useState({ width: 0, height: 0 });
 
@@ -74,37 +74,27 @@ export default function Preloader() {
   };
 
   return (
-    <AnimatePresence mode="wait">
-      {isLoading && (
-        <motion.div
-          variants={slideUp}
-          initial="initial"
-          exit="exit"
-          className=" h-screen w-screen flex items-center justify-center fixed z-[999] bg-black"
-        >
-          {dimension.width > 0 && (
-            <>
-              <motion.p
-                className="flex text-white text-[42px] items-center absolute z-[1]"
-                variants={opacity}
-                initial="initial"
-                animate="enter"
-              >
-                <span className="block w-[10px] h-[10px] bg-white rounded-[50%] mr-3"></span>
-                {words[index]}
-              </motion.p>
-              <svg className="absolute top-0 w-full h-full mt-24">
-                <motion.path
-                  variants={curve}
-                  initial="initial"
-                  exit="exit"
-                  fill={"#000"}
-                ></motion.path>
-              </svg>
-            </>
-          )}
-        </motion.div>
+    <motion.div
+      variants={slideUp}
+      initial="initial"
+      exit="exit"
+      className={styles.introduction}
+    >
+      {dimension.width > 0 && (
+        <>
+          <motion.p variants={opacity} initial="initial" animate="enter">
+            <span></span>
+            {words[index]}
+          </motion.p>
+          <svg>
+            <motion.path
+              variants={curve}
+              initial="initial"
+              exit="exit"
+            ></motion.path>
+          </svg>
+        </>
       )}
-    </AnimatePresence>
+    </motion.div>
   );
 }

@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  overflow: hidden;
+  z-index: 10;
 
   @media (min-width: 100px) {
     padding-left: 10px;
@@ -124,7 +124,7 @@
       background-color: white;
       z-index: 1;
       position: absolute;
-      box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     }
   }
 }

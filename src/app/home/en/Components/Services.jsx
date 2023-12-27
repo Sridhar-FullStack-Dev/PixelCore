@@ -25,7 +25,7 @@ export default function Services() {
   }, []);
 
   return (
-    <div className="flex w-full justify-between sm:flex-col lg:flex-row sm:h-[270vh] md:h-[200vh] lg:h-screen font-body bg-gray-200">
+    <div className="flex w-full justify-between sm:flex-col lg:flex-row h-auto font-body bg-gray-200">
       {/* Left */}
       <div className="flex sm:flex-col md:flex-row">
         <div className="flex flex-col justify-between h-[70vh] lg:w-[45%] xl:w-auto p-8">

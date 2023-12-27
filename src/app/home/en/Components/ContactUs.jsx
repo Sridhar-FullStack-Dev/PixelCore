@@ -1,5 +1,6 @@
 import "../index.css";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { GrAttachment } from "react-icons/gr";
@@ -67,16 +68,26 @@ export default function ContactUs() {
   };
 
   return (
-    <div className="sm:h-[150vh] lg:h-[90vh] xl:h-screen w-full">
+    <div className="sm:h-[150vh] lg:h-[90vh] xl:h-screen w-full overflow-hidden">
       <video
         autoPlay
         muted
         playsInline
         loop
-        className="absolute z-10 w-full sm:h-[150vh] lg:h-[90vh] xl:h-screen object-cover"
+        className="absolute z-10 w-full sm:hidden md:block sm:h-[150vh] lg:h-[90vh] xl:h-screen object-cover"
       >
         <source src="/video.mp4" type="video/mp4" />
       </video>
+
+      <Image
+        src={
+          "https://images.pexels.com/photos/1507856/pexels-photo-1507856.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        }
+        alt=""
+        height={2000}
+        width={2000}
+        className="absolute z-10 w-full sm:h-[150vh] lg:h-[90vh] xl:h-screen object-cover md:hidden"
+      />
 
       <div className="relative z-20 flex sm:flex-col lg:flex-row w-full justify-between sm:gap-4 lg:gap-0 xl:gap-16 lg:p-8">
         {/* left */}
@@ -244,7 +255,7 @@ export default function ContactUs() {
                       {Loading ? (
                         <span className="contact-btn-loader"></span>
                       ) : success ? (
-                        <TiTickOutline className="text-[#CEF34A] text-2xl"/>
+                        <TiTickOutline className="text-[#CEF34A] text-2xl" />
                       ) : (
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
