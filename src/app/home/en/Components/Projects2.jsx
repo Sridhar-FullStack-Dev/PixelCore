@@ -92,6 +92,7 @@ export default function Projects2() {
           );
         })}
       </motion.div>
+      
       <motion.div style={{ height }} className={styles.circleContainer}>
         <div className={styles.circle}></div>
       </motion.div>

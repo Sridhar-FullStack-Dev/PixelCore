@@ -12,7 +12,7 @@ export default function Scenarios() {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1, zIndex: 10 }}
       transition={{ duration: 0.5, delay: 0.5, ease: "linear" }}
-      className="rounded-[20px] h-auto p-8 w-full bg-white"
+      className="rounded-[20px] h-auto p-8 w-full bg-white relative -z-10"
     >
       <motion.div
         initial={{ opacity: 0 }}

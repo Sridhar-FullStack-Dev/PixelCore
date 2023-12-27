@@ -38,6 +38,11 @@ export default function page() {
         smoothMobile: true,
         resetNativeScroll: true,
       });
+
+      setTimeout(() => {
+        document.body.style.cursor = "default";
+        window.scrollTo(0, 0);
+      }, 2000);
     })();
   }, []);
   return (
@@ -48,8 +53,7 @@ export default function page() {
             ref={textRef}
             className="text-on flex justify-between items-center lg:text-9xl md:text-8xl sm:text-6xl w-auto whitespace-nowrap font-geordina"
           >
-            உங்கள் எதிர்காலம் வலைத்தளம் 3.0+
-            உங்கள் எதிர்காலம் வலைத்தளம் 3.0+
+            உங்கள் எதிர்காலம் வலைத்தளம் 3.0+ உங்கள் எதிர்காலம் வலைத்தளம் 3.0+
             உங்கள் எதிர்காலம் வலைத்தளம் 3.0+
           </div>
         </div>

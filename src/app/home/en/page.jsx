@@ -38,6 +38,11 @@ export default function page() {
         smoothMobile: true,
         resetNativeScroll: true,
       });
+
+      setTimeout(() => {
+        document.body.style.cursor = "default";
+        window.scrollTo(0, 0);
+      }, 2000);
     })();
   }, []);
   return (

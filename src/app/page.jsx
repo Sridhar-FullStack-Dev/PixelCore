@@ -23,6 +23,13 @@ export default function page() {
         smoothMobile: true,
         resetNativeScroll: true,
       });
+
+      setTimeout(() => {
+        setIsLoading(false);
+        document.body.style.cursor = "default";
+        window.scrollTo(0, 0);
+      }, 2000);
+      
     })();
   }, []);
 
